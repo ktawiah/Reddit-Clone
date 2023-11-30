@@ -15,7 +15,7 @@ const SignInForm = ({ className, ...props }: SignInAuthFormProps) => {
   const loginWithGoogle = async () => {
     setIsLoading(true);
     try {
-      await signIn("google", { callbackUrl: "http://localhost:3000" });
+      await signIn("google", { callbackUrl: "/" });
     } catch (error) {
       toast({
         title: "There was a problem.",
@@ -32,7 +32,8 @@ const SignInForm = ({ className, ...props }: SignInAuthFormProps) => {
         <Button
           isLoading={isLoading}
           size={"sm"}
-          className="w-full flex gap-2"
+          variant={"outline"}
+          className="w-full flex gap-2 rounded-full"
           onClick={loginWithGoogle}
         >
           <span>{isLoading ? null : <Icons.google className="h-4 w-4" />}</span>

@@ -24,6 +24,9 @@ const Page = async ({ params }: PageProps) => {
           votes: true,
           subreddit: true,
         },
+        orderBy: {
+          createdAt: "desc",
+        },
         take: INFINITE_SCROLLING_PAGINATION_RESULTS,
       },
     },
@@ -34,9 +37,11 @@ const Page = async ({ params }: PageProps) => {
   }
   return (
     <>
-      <h1 className="font-bold text-3xl md:text-4xl h-14">{subreddit.name}</h1>
+      <h1 className="font-bold text-3xl md:text-4xl h-14">
+        r/{subreddit.name}
+      </h1>
       <MiniCreatePost session={session} />
-      <PostFeed />
+      <PostFeed initialPost={subreddit.posts} subredditName={subreddit.name} />
     </>
   );
 };

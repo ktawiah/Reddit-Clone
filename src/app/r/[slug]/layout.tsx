@@ -61,7 +61,6 @@ const Layout = async ({ children, params }: LayoutProps) => {
           <div className="px-6 py-4">
             <p className="font-semibold py-3">About r/{params.slug}</p>
           </div>
-          \
           <dl className="divide-y divide-gray-100 px-6 py-4 text-sm leading-6 bg-white">
             <div className="flex justify-between gap-x-4 py-3">
               <dt className="text-gray-500">Created</dt>
@@ -83,7 +82,7 @@ const Layout = async ({ children, params }: LayoutProps) => {
               </div>
             ) : null}
             <Link
-              href={`submit`}
+              href={`${subreddit.name}/submit`}
               className={buttonVariants({
                 variant: "subtle",
                 className: "w-full mb-6",

@@ -2,7 +2,6 @@ import { db } from "@/lib/db";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { nanoid } from "nanoid";
 import { NextAuthOptions, getServerSession } from "next-auth";
-// import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
@@ -18,38 +17,6 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
-    //   CredentialsProvider({
-    //     name: "Credentials",
-    //     credentials: {
-    //       username: {
-    //         label: "Username",
-    //         type: "text",
-    //         placeholder: "Enter your username here...",
-    //       },
-    //       password: {
-    //         label: "Password",
-    //         type: "password",
-    //         placeholder: "Enter your password here...",
-    //       },
-    //       email: {
-    //         label: "Email",
-    //         type: "email",
-    //         placeholder: "Enter your password here...",
-    //       },
-    //     },
-    //     authorize(credentials) {
-    //       const user = { id: "", email: "", password: "", name: "" };
-    //       if (
-    //         credentials?.email === user.email &&
-    //         credentials.username === user.name &&
-    //         credentials.password === user.password
-    //       ) {
-    //         return user;
-    //       } else {
-    //         return null;
-    //       }
-    //     },
-    //   }),
   ],
   callbacks: {
     async session({ token, session }) {
